@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7BCCDF86-4115-47B5-ABCC-11340E501C5E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{668F25D1-8D49-4A85-B061-B5976E772D6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpringNet.Extended", "src\SpringNet.Extended\SpringNet.Extended.csproj", "{CF55A079-7120-4537-9D91-0E279040B304}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_shareProjects", "_shareProjects", "{866EF5FA-574C-4871-AC93-99ADF9F79B6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\Common\src\Common\Common.csproj", "{6C3DF461-2F2C-4AB9-912F-72DE259D311E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caching.Redis", "..\Caching\src\Caching.Redis\Caching.Redis.csproj", "{D0D67571-4130-4E42-866F-91F36806AB11}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF55A079-7120-4537-9D91-0E279040B304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF55A079-7120-4537-9D91-0E279040B304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF55A079-7120-4537-9D91-0E279040B304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF55A079-7120-4537-9D91-0E279040B304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C3DF461-2F2C-4AB9-912F-72DE259D311E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C3DF461-2F2C-4AB9-912F-72DE259D311E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C3DF461-2F2C-4AB9-912F-72DE259D311E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C3DF461-2F2C-4AB9-912F-72DE259D311E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0D67571-4130-4E42-866F-91F36806AB11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0D67571-4130-4E42-866F-91F36806AB11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0D67571-4130-4E42-866F-91F36806AB11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0D67571-4130-4E42-866F-91F36806AB11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CF55A079-7120-4537-9D91-0E279040B304} = {7BCCDF86-4115-47B5-ABCC-11340E501C5E}
+		{6C3DF461-2F2C-4AB9-912F-72DE259D311E} = {866EF5FA-574C-4871-AC93-99ADF9F79B6A}
+		{D0D67571-4130-4E42-866F-91F36806AB11} = {866EF5FA-574C-4871-AC93-99ADF9F79B6A}
+	EndGlobalSection
+EndGlobal

@@ -8,6 +8,7 @@ using System.Web.Security;
 using System.Web.SessionState;
 using Wlitsoft.Framework.Caching.Redis;
 using Wlitsoft.Framework.Common;
+using Wlitsoft.Framework.Common.Core;
 
 namespace DistributedCache.MVC4WebAppQuickStart
 {
@@ -24,7 +25,7 @@ namespace DistributedCache.MVC4WebAppQuickStart
         {
             RegisterRoutes(RouteTable.Routes);
 
-            App.Builder.SetRedisCacheConfigByAppSettings();
+            App.Builder.SetRedisCacheByAppSettings();
         }
     }
 }

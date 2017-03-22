@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections;
+using System.Collections.Concurrent;
 using Wlitsoft.Framework.Common;
 using Wlitsoft.Framework.Common.Extension;
 using Wlitsoft.Framework.Common.Core;
@@ -22,6 +23,8 @@ namespace Wlitsoft.SpringNet.Extended.Cache
         //json 序列化者。
         private static readonly ISerializer JsonSerializer;
 
+        private static readonly ConcurrentDictionary<string, Type> Types;
+
         #region 构造方法
 
         /// <summary>
@@ -30,6 +33,7 @@ namespace Wlitsoft.SpringNet.Extended.Cache
         static DistributedCache()
         {
             JsonSerializer = App.SerializerService.GetJsonSerializer();
+            Types = new ConcurrentDictionary<string, Type>();
         }
 
         #endregion
@@ -45,10 +49,18 @@ namespace Wlitsoft.SpringNet.Extended.Cache
         {
             CacheEntry entry = App.DistributedCache.Get<CacheEntry>(key.ToString());
 
-            if (entry == null || string.IsNullOrEmpty(entry.JsonValue) || string.IsNullOrEmpty(entry.TypeFullName))
+            if (entry == null || string.IsNullOrEmpty(entry.JsonValue) || string.IsNullOrEmpty(entry.TypeName))
                 return null;
 
-            Type type = Type.GetType(entry.TypeFullName);
+            Type type = Types.GetOrAdd(entry.TypeName, Type.GetType(entry.TypeName));
+
+            if (type == null)
+            {
+                Type outType;
+                Types.TryRemove(entry.TypeName, out outType);
+                return null;
+            }
+
             return JsonSerializer.Deserialize(type, entry.JsonValue);
         }
 
@@ -81,7 +93,7 @@ namespace Wlitsoft.SpringNet.Extended.Cache
         {
             CacheEntry entry = new CacheEntry()
             {
-                TypeFullName = value.GetType().FullName,
+                TypeName = value.GetType().AssemblyQualifiedName,
                 JsonValue = value.ToJsonString()
             };
             App.DistributedCache.Set<CacheEntry>(key.ToString(), entry, timeToLive);

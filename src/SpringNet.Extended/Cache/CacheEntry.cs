@@ -19,9 +19,9 @@ namespace Wlitsoft.SpringNet.Extended.Cache
     public class CacheEntry
     {
         /// <summary>
-        /// 获取或设置类型全名。
+        /// 获取或设置类型名（包括程序集名称）。
         /// </summary>
-        public string TypeFullName { get; set; }
+        public string TypeName { get; set; }
 
         /// <summary>
         /// 获取或设置Json字符串值。
